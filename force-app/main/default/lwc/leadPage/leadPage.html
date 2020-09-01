@@ -1,0 +1,41 @@
+<template>
+    <lightning-card>
+        <div class="slds-var-m-around_medium">
+
+            <template if:true={leadData}>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size--1-of-2">
+                        Id <br />{leadData.Id__c}<br /><br />
+                        Description <br />{leadData.Description}<br /><br />
+                        Model(S) <br />{leadData.Model__c}<br /><br />
+                        Source <br />{leadData.Source__c}<br /><br />
+                        <template if:true={outComePickListValues.data}>
+                            <lightning-combobox name="progress" label="OutCome" value={leadData.Outcome__c}
+                                options={outComePickListValues.data.values} onchange={handleChangeOutCome}>
+                            </lightning-combobox>
+                        </template>
+                    </div>
+                    <div class="slds-col slds-size--1-of-2">
+                        Created <br />
+                        <lightning-formatted-date-time value={leadData.CreatedDate} year="numeric" month="numeric"
+                            day="numeric" hour="2-digit" minute="2-digit" hour12="true">
+                        </lightning-formatted-date-time><br /><br />
+                        Assigned To <br />{leadData.Consultant__r.Name}<br /><br />
+                        <template if:true={statuspickListValues.data}>
+                            <lightning-combobox name="progress" label="Status" value={leadData.Status}
+                                options={statuspickListValues.data.values} onchange={handleChangeStatus}>
+                            </lightning-combobox>
+                        </template>
+                    </div>
+                </div><br />
+                <lightning-button label="Save" onclick={saveDetails} variant="brand"></lightning-button>
+            </template>
+
+            <template if:true={error}>
+                <div class="slds-text-color_error">
+                    An error occurred while loading the bear record
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

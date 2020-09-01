@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Contact Details" icon-name="standard:contact" >
+        <div class="slds-var-m-around_medium">
+            
+            <template if:true={leadData}>
+                Customer Id  <br/>{leadData.Prospect__r.Customer_Id__c}<br/><br/>
+                Customer Name  <br/>{leadData.Prospect__r.Name}<br/><br/>
+                Mobile  <br/>{leadData.Prospect__r.Mobile__c}<br/><br/>
+                Email  <br/>{leadData.Prospect__r.Email__c}<br/><br/>
+                Preferred Contact Method  <br/>{leadData.Prospect__r.Preferred_Contact_Method__c}<br/><br/>
+                
+            </template>
+            
+            <template if:true={error}>
+                <div class="slds-text-color_error">
+                    An error occurred while loading the bear record
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

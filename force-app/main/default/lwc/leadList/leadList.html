@@ -1,0 +1,75 @@
+<template>
+
+
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <!-- <div class="slds-truncate">
+                        <lightning-input type="checkbox"></lightning-input>
+                    </div> -->
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Model">Model</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Type">Type</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Prospect">Prospect</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Status">Status</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Assigned To Delearship">Assigned To Delearship</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Outcome">Outcome</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Consultant">Consultant</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={leads} for:item="con">
+                <tr key={con.Id}>
+                    <th scope="col">
+                        <div>
+                            <lightning-input type="checkbox" value={con.Id} onchange={getChecked}></lightning-input>
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div>{con.Model__c}</div>
+                    </th>
+                    <th scope="col">
+                        <div>{con.Type__c}</div>
+                    </th>
+                    <th scope="col">
+                        <div>{con.Prospect__r.Name}</div>
+                    </th>
+                    <th scope="col">
+                        <div>{con.Status}</div>
+                    </th>
+                    <th scope="col">
+                        <div>
+                            <lightning-formatted-date-time value={con.Assigned_To_Dealership__c} year="numeric"
+                                month="numeric" day="numeric" hour="2-digit" minute="2-digit" hour12="true">
+                            </lightning-formatted-date-time>
+                            
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div>{con.Outcome__c}</div>
+                    </th>
+                    <th scope="col">
+                        <div>{con.Consultant__r.Name}</div>
+                    </th>
+
+                </tr>
+            </template>
+        </tbody>
+    </table>
+
+</template>
