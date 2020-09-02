@@ -4,25 +4,37 @@ import pubsub from 'c/pubSub';
 export default class LeadList extends LightningElement {
     leads; error;
     @api selectedId;
+   
+
     @wire(getLeads)
     wiredLeads({ error, data }) {
         if (data) {
             this.leads = data;
-            console.log(JSON.stringify(this.leads));
+           console.log(JSON.stringify(this.leads));
         } else if (error) {
             console.log(error);
             this.error = error;
         }
     }
-
+  
+    
     getChecked(event) {
         if (event.target.checked)
-        {
-            console.log('data checked ' + event.target.value);
+        { 
+            
+          this.template.querySelectorAll('lightning-input').forEach(element => {
+              if(!element.checked)
+               element.disabled = true;
+            });
+            
+         console.log('data checked ' + event.target.value);
             this.selectedId=event.target.value;
         }
         else
         {
+            this.template.querySelectorAll('lightning-input').forEach(element => {
+                element.disabled = false;
+              });
             console.log('unchecked');
             this.selectedId=null;
         }
