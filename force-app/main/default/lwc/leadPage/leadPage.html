@@ -4,7 +4,7 @@
 
             <template if:true={leadData}>
                 <div class="slds-grid">
-                    <div class="slds-col slds-size--1-of-2">
+                    <div class="slds-col slds-size_1-of-3">
                         Id <br />{leadData.Id__c}<br /><br />
                         Description <br />{leadData.Description}<br /><br />
                         Model(S) <br />{leadData.Model__c}<br /><br />
@@ -15,7 +15,7 @@
                             </lightning-combobox>
                         </template>
                     </div>
-                    <div class="slds-col slds-size--1-of-2">
+                    <div class="slds-col slds-size_1-of-3">
                         Created <br />
                         <lightning-formatted-date-time value={leadData.CreatedDate} year="numeric" month="numeric"
                             day="numeric" hour="2-digit" minute="2-digit" hour12="true">
@@ -27,7 +27,13 @@
                             </lightning-combobox>
                         </template>
                     </div>
+                    <div class="slds-col slds-size_1-of-3">
+                        <span class="slds-image">
+                            <img src={leadData.Model_Photo__c}  alt="No Image Available" />
+                        </span>
+                    </div>
                 </div><br />
+                <!-- <lightning-button-icon icon-name="utility:save"  label="Save"  alternative-text="Save"  onclick={saveDetails} variant="brand" >Save</lightning-button-icon> -->
                 <lightning-button label="Save" onclick={saveDetails} variant="brand"></lightning-button>
             </template>
 

@@ -20,6 +20,7 @@
 		<members>Lead.Assigned_To_Dealership__c</members>
 		<members>Lead.Consultant__c</members>
 		<members>Lead.Id__c</members>
+		<members>Lead.Model_Photo__c</members>
 		<members>Lead.Model__c</members>
 		<members>Lead.Outcome__c</members>
 		<members>Lead.Prospect__c</members>
