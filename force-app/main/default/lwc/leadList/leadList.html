@@ -41,7 +41,10 @@
                         </div>
                     </th>
                     <th scope="col">
-                        <div>{con.Model__c}</div>
+                        <!-- <div>{con.Model__c}</div> -->
+                        <span class="slds-avatar slds-avatar--large">
+                            <img src={con.Model_Photo__c} alt="person name" />
+                        </span>
                     </th>
                     <th scope="col">
                         <div>{con.Type__c}</div>
@@ -57,7 +60,7 @@
                             <lightning-formatted-date-time value={con.Assigned_To_Dealership__c} year="numeric"
                                 month="numeric" day="numeric" hour="2-digit" minute="2-digit" hour12="true">
                             </lightning-formatted-date-time>
-                            
+
                         </div>
                     </th>
                     <th scope="col">
